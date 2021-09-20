@@ -32,15 +32,16 @@ public class RegexSimplifierTransformRule implements NodeTransformRule {
         } else if (node instanceof ASTFunctionNode) {
             FunctionJexlNodeVisitor functionMetadata = new FunctionJexlNodeVisitor();
             node.jjtAccept(functionMetadata, null);
-            if (functionMetadata.namespace().equals(EvaluationPhaseFilterFunctions.EVAL_PHASE_FUNCTION_NAMESPACE) &&
-                    EvaluationPhaseFilterFunctionsDescriptor.EvaluationPhaseFilterJexlArgumentDescriptor.regexFunctions.contains(functionMetadata.name())) {
+            if (functionMetadata.namespace().equals(EvaluationPhaseFilterFunctions.EVAL_PHASE_FUNCTION_NAMESPACE)
+                            && EvaluationPhaseFilterFunctionsDescriptor.EvaluationPhaseFilterJexlArgumentDescriptor.regexFunctions.contains(functionMetadata
+                                            .name())) {
                 JexlNode literal = JexlASTHelper.getLiteral(functionMetadata.args().get(1));
                 literal.image = processPattern(literal.image);
             }
         }
         return node;
     }
-
+    
     private String processPattern(String regex) {
         boolean changed = false;
         Matcher matcher = pattern.matcher(regex);
