@@ -65,4 +65,10 @@
     <value>24</value>
     <description>hyperlog value for sparse precision</description>
   </property>
+
+  <property>
+    <name>partitioner.default.delegate</name>
+    <value>datawave.ingest.mapreduce.partition.MultiTableRRRangePartitioner</value>
+  </property>
+
 </configuration>
