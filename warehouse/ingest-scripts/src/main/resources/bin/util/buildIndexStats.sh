@@ -230,12 +230,12 @@ if [[ -z "$DATAWAVE_INGEST_HOME" ]]; then
 fi
 
 #
-# set the ingest config files
+# set the shardStats config files
 #
 declare -a _IngestConfig
 i=0
-for f in ../../config/shard-stats-config.xml; do
-    _IngestConfig[i++]=$(basename $f)
+for f in ../../config/shardStats/*-config.xml; do
+    _IngestConfig[i++]=shardStats/$(basename $f)
 done
 
 #

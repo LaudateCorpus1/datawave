@@ -71,4 +71,15 @@
     <value>datawave.ingest.mapreduce.partition.MultiTableRRRangePartitioner</value>
   </property>
 
+  <property>
+    <name>sharded.table.names</name>
+    <value>${table.name.shard}</value>
+    <description>Comma-separated list of tables that need to pull splits from accumulo</description>
+  </property>
+
+  <property>
+    <name>shard.table.name</name>
+    <value>${table.name.shard}</value>
+  </property>
+
 </configuration>
